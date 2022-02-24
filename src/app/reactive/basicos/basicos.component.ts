@@ -48,7 +48,7 @@ export class BasicosComponent implements OnInit {
 
   campoEsValido(campo: string) {
     return this.miFormulario.controls[campo].errors &&
-           this.miFormulario.controls[campo].touched
+           this.miFormulario.controls[campo].touched;
   }
 
 
