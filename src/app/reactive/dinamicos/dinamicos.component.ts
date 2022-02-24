@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dinamicos',
@@ -10,8 +10,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class DinamicosComponent implements OnInit {
 
   miFormulario: FormGroup = this.fb.group({
-    nombre: ['', [Validators.required, Validators.minLength(3)]]
+    nombre: ['', [Validators.required, Validators.minLength(3)]],
+    favoritos: this.fb.array([
+      ['Metal Gear', Validators.required],
+      ['Death Stranding', Validators.required],
+    ], Validators.required)
   });
+
+  get favoritosArr() {
+    return this.miFormulario.get('favoritos') as FormArray;
+  }
 
   constructor(private fb: FormBuilder) { }
 
