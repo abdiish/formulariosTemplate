@@ -57,4 +57,10 @@ export class DinamicosComponent implements OnInit {
 
   }
 
+  borrar(index: number) {
+    console.log('Borrar', index);
+    this.favoritosArr.removeAt(index);
+
+  }
+
 }
